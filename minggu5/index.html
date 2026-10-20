@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portofolio Royen Hamonangan Parhusip, mahasiswa Sistem Informasi Universitas Dian Nuswantoro.">
+    <title>Portofolio | Royen Hamonangan Parhusip</title>
+    <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #17243b;
+            --muted: #68758b;
+            --accent: #f5a623;
+            --soft: #f5f7fb;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+
+        body {
+            color: var(--ink);
+            background: #fff;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(12px);
+        }
+
+        .brand-mark {
+            display: inline-grid;
+            width: 2.5rem;
+            height: 2.5rem;
+            place-items: center;
+            color: var(--ink);
+            background: #fff0d5;
+            border-radius: .8rem;
+            font-weight: 800;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            background: var(--ink);
+        }
+
+        .hero::before {
+            position: absolute;
+            top: -12rem;
+            right: -8rem;
+            width: 35rem;
+            height: 35rem;
+            content: "";
+            background: radial-gradient(circle, rgba(245, 166, 35, .2), transparent 68%);
+            pointer-events: none;
+        }
+
+        .hero-copy,
+        .hero-photo-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-kicker,
+        .section-kicker {
+            color: var(--accent);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            max-width: 45rem;
+            font-size: clamp(2.5rem, 6vw, 4.7rem);
+            font-weight: 800;
+            letter-spacing: -.045em;
+            line-height: 1.08;
+        }
+
+        .hero-copy > p {
+            max-width: 39rem;
+            color: #c5cede;
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .hero-photo-wrap {
+            max-width: 22rem;
+            margin-inline: auto;
+            padding: .75rem;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 2rem;
+            background: rgba(255, 255, 255, .08);
+            transform: rotate(2deg);
+        }
+
+        .hero-photo {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: 1.4rem;
+            object-fit: cover;
+        }
+
+        .min-vh-75 {
+            min-height: 75vh;
+        }
+
+        .section-space {
+            padding-block: 5.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -.035em;
+        }
+
+        .section-intro {
+            max-width: 42rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .soft-section {
+            background: var(--soft);
+        }
+
+        .info-card,
+        .content-card {
+            height: 100%;
+            border: 1px solid #e8ecf2;
+            border-radius: 1.1rem;
+            background: #fff;
+            box-shadow: 0 .5rem 1.5rem rgba(23, 36, 59, .045);
+        }
+
+        .info-card {
+            padding: 1.5rem;
+        }
+
+        .content-card {
+            padding: 1.75rem;
+        }
+
+        .icon-box {
+            display: inline-grid;
+            width: 2.8rem;
+            height: 2.8rem;
+            place-items: center;
+            color: #8b5a00;
+            background: #fff0d5;
+            border-radius: .9rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .text-muted-custom {
+            color: var(--muted);
+        }
+
+        .skill-pill {
+            display: inline-block;
+            margin: .25rem .2rem .25rem 0;
+            padding: .5rem .8rem;
+            color: #344158;
+            background: #f0f3f8;
+            border-radius: 50rem;
+            font-size: .9rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 2rem 1.5rem;
+            border-left: 2px solid #e8ecf2;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            position: absolute;
+            top: .15rem;
+            left: -.48rem;
+            width: .85rem;
+            height: .85rem;
+            content: "";
+            border: 3px solid #fff;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+        }
+
+        .table > :not(caption) > * > * {
+            padding: 1rem;
+        }
+
+        .contact-panel {
+            color: #fff;
+            background: var(--ink);
+            border-radius: 1.4rem;
+        }
+
+        .contact-panel .text-muted-custom {
+            color: #c5cede;
+        }
+
+        .form-label {
+            font-weight: 650;
+        }
+
+        .form-control,
+        .form-select {
+            padding: .75rem .9rem;
+            border-color: #dfe5ee;
+            border-radius: .7rem;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 .2rem rgba(245, 166, 35, .18);
+        }
+
+        .btn-accent {
+            color: var(--ink);
+            background: var(--accent);
+            border-color: var(--accent);
+            font-weight: 750;
+        }
+
+        .btn-accent:hover {
+            color: var(--ink);
+            background: #ffba4d;
+            border-color: #ffba4d;
+        }
+
+        footer {
+            color: #c5cede;
+            background: #111b2d;
+        }
+
+        @media (max-width: 767.98px) {
+            .section-space {
+                padding-block: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Navigasi utama">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#beranda">
+                <span class="brand-mark">RH</span>
+                <span>Royen Hamonangan</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pendidikan">Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#keahlian">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
+                    <li class="nav-item"><a class="btn btn-accent rounded-pill px-4" href="#kontak">Hubungi Saya</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="beranda">
+        <div class="container py-5 py-lg-0">
+            <div class="row align-items-center g-5 min-vh-75 py-lg-5">
+                <div class="col-lg-7 py-4 hero-copy">
+                    <p class="hero-kicker mb-3">Portofolio · Sistem Informasi</p>
+                    <h1>Halo, saya Royen.<br><span class="text-warning">Senang berkenalan!</span></h1>
+                    <p class="mt-4 mb-4">Mahasiswa Sistem Informasi di Universitas Dian Nuswantoro yang tertarik pada pengembangan web, basis data, dan analisis sistem.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-accent btn-lg rounded-pill px-4" href="#proyek">Lihat Portofolio</a>
+                        <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="#profil">Tentang Saya</a>
+                    </div>
+                    <div class="d-flex flex-wrap gap-4 mt-5 small text-white-50">
+                        <span>📍 Semarang, Indonesia</span>
+                        <span>🎓 Universitas Dian Nuswantoro</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 hero-photo-wrap">
+                    <img class="hero-photo" src="image/image1.jpg" alt="Foto Royen Hamonangan Parhusip">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-space" id="profil">
+            <div class="container">
+                <div class="row g-5 align-items-start">
+                    <div class="col-lg-7">
+                        <p class="section-kicker mb-2">Perkenalan</p>
+                        <h2 class="section-title mb-4">Mengenal saya lebih dekat</h2>
+                        <p class="section-intro mb-3">Saya adalah mahasiswa aktif Program Studi Sistem Informasi di Fakultas Ilmu Komputer. Saya memiliki ketertarikan pada pengembangan aplikasi web, perancangan basis data, serta analisis sistem informasi.</p>
+                        <p class="section-intro mb-0">Saya senang mempelajari teknologi baru yang dapat membantu menyelesaikan permasalahan di bidang teknologi informasi. Melalui tugas dan proyek perkuliahan, saya terus berusaha meningkatkan pengetahuan dan keterampilan pemrograman serta merancang sistem yang mudah digunakan.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="info-card">
+                            <span class="icon-box mb-3" aria-hidden="true">✦</span>
+                            <h3 class="h5 fw-bold">Yang sedang saya pelajari</h3>
+                            <p class="text-muted-custom mb-3">Membangun fondasi yang kuat untuk membuat solusi digital yang berguna dan mudah dipakai.</p>
+                            <div>
+                                <span class="skill-pill">Pengembangan Web</span>
+                                <span class="skill-pill">Basis Data</span>
+                                <span class="skill-pill">Analisis Sistem</span>
+                                <span class="skill-pill">UI yang mudah digunakan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space soft-section" id="pendidikan">
+            <div class="container">
+                <div class="mb-4">
+                    <p class="section-kicker mb-2">Perjalanan belajar</p>
+                    <h2 class="section-title mb-2">Riwayat pendidikan</h2>
+                    <p class="section-intro mb-0">Perjalanan pendidikan yang membentuk minat saya di bidang teknologi dan sistem informasi.</p>
+                </div>
+                <div class="content-card p-0 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Tingkat</th>
+                                    <th scope="col">Instansi</th>
+                                    <th scope="col">Tahun</th>
+                                    <th scope="col">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">SMA</th>
+                                    <td>SMAN 3 Pangkalan Bun, Kalimantan Tengah</td>
+                                    <td>2021–2024</td>
+                                    <td>Penjurusan IPS</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Perguruan Tinggi (S1)</th>
+                                    <td><a href="https://www.dinus.ac.id" target="_blank" rel="noopener noreferrer">Universitas Dian Nuswantoro</a></td>
+                                    <td>2025–sekarang</td>
+                                    <td>Sistem Informasi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space" id="keahlian">
+            <div class="container">
+                <div class="mb-4">
+                    <p class="section-kicker mb-2">Kemampuan & minat</p>
+                    <h2 class="section-title mb-2">Keahlian dan hobi</h2>
+                    <p class="section-intro mb-0">Hal yang saya pelajari dan lakukan untuk terus berkembang.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <article class="info-card">
+                            <span class="icon-box mb-3" aria-hidden="true">01</span>
+                            <h3 class="h5 fw-bold">Keahlian utama</h3>
+                            <ul class="text-muted-custom ps-3 mb-0">
+                                <li class="mb-2">Pemrograman web dasar (HTML, PHP)</li>
+                                <li class="mb-2">Pengelolaan database MySQL</li>
+                                <li>Pemodelan sistem (DFD &amp; ERD)</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                        <article class="info-card">
+                            <span class="icon-box mb-3" aria-hidden="true">02</span>
+                            <h3 class="h5 fw-bold">Hobi dan minat</h3>
+                            <ul class="text-muted-custom ps-3 mb-0">
+                                <li class="mb-2">Membaca dokumentasi di <a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
+                                <li class="mb-2">Eksplorasi pembuatan aplikasi web</li>
+                                <li>Menulis</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+                <div class="info-card mt-4" id="sertifikat">
+                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-3">
+                        <span class="icon-box flex-shrink-0" aria-hidden="true">★</span>
+                        <div>
+                            <h3 class="h5 fw-bold mb-1">Sertifikat</h3>
+                            <p class="text-muted-custom mb-0">Sertifikat belum tersedia untuk ditampilkan. Pratinjau dapat ditambahkan di sini saat file sertifikat tersedia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space soft-section" id="proyek">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5">
+                        <p class="section-kicker mb-2">Yang pernah dikerjakan</p>
+                        <h2 class="section-title mb-3">Proyek &amp; aktivitas akademik</h2>
+                        <p class="section-intro mb-0">Latihan perkuliahan menjadi kesempatan untuk menerapkan konsep dan mengembangkan keterampilan secara bertahap.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <article class="content-card">
+                            <div class="d-flex gap-3">
+                                <span class="icon-box flex-shrink-0" aria-hidden="true">⌘</span>
+                                <div>
+                                    <p class="section-kicker mb-2">Pemrograman Web</p>
+                                    <h3 class="h4 fw-bold">Tugas Pemrograman Web 1</h3>
+                                    <p class="text-muted-custom mb-3">Pembuatan halaman profil dan formulir interaktif menggunakan elemen semantik HTML, tabel terstruktur, dan elemen input form.</p>
+                                    <span class="skill-pill">HTML</span>
+                                    <span class="skill-pill">Formulir</span>
+                                    <span class="skill-pill">Elemen semantik</span>
+                                </div>
+                            </div>
+                        </article>
+                        <aside class="mt-3 px-2 text-muted-custom">
+                            <strong class="text-dark">Catatan kampus:</strong>
+                            Informasi jadwal perkuliahan dan kurikulum dapat dilihat di <a href="https://mhs.dinus.ac.id" target="_blank" rel="noopener noreferrer">SiAdin Udinus</a>.
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space" id="kontak">
+            <div class="container">
+                <div class="contact-panel p-4 p-lg-5">
+                    <div class="row g-5">
+                        <div class="col-lg-5">
+                            <p class="section-kicker mb-2">Mari terhubung</p>
+                            <h2 class="section-title mb-3">Ada pesan untuk saya?</h2>
+                            <p class="text-muted-custom mb-0">Isi formulir berikut untuk mengirimkan pesan. Saya senang menerima pertanyaan, masukan, maupun ajakan berdiskusi.</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <form action="simpan.php" method="post">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="fnama">Nama lengkap</label>
+                                        <input class="form-control" type="text" id="fnama" name="fnama" autocomplete="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="femail">Email</label>
+                                        <input class="form-control" type="email" id="femail" name="femail" autocomplete="email" required>
+                                    </div>
+                                    <fieldset class="col-12">
+                                        <legend class="form-label fs-6 mb-2">Jenis kelamin</legend>
+                                        <div class="d-flex gap-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="pria" name="fjkel" value="Pria">
+                                                <label class="form-check-label" for="pria">Pria</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="wanita" name="fjkel" value="Wanita">
+                                                <label class="form-check-label" for="wanita">Wanita</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="col-12">
+                                        <label class="form-label" for="fprodi">Program studi</label>
+                                        <select class="form-select" id="fprodi" name="fprodi">
+                                            <option value="SI">Sistem Informasi S1</option>
+                                            <option value="TI">Teknik Informatika S1</option>
+                                            <option value="DKV">Desain Komunikasi Visual S1</option>
+                                        </select>
+                                    </div>
+                                    <fieldset class="col-12">
+                                        <legend class="form-label fs-6 mb-2">Hobi / minat</legend>
+                                        <div class="d-flex gap-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="coding" name="fhobi[]" value="Coding">
+                                                <label class="form-check-label" for="coding">Coding</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="reading" name="fhobi[]" value="Membaca">
+                                                <label class="form-check-label" for="reading">Membaca</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="col-12">
+                                        <label class="form-label" for="fpesan">Pesan</label>
+                                        <textarea class="form-control" id="fpesan" name="fpesan" rows="4" required></textarea>
+                                    </div>
+                                    <div class="col-12 d-flex flex-wrap gap-2 pt-2">
+                                        <button class="btn btn-accent rounded-pill px-4" type="submit">Kirim pesan</button>
+                                        <button class="btn btn-outline-light rounded-pill px-4" type="reset">Kosongkan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
+            <p class="mb-0">&copy; 2026 Royen Hamonangan Parhusip</p>
+            <p class="mb-0 small">Sistem Informasi · Universitas Dian Nuswantoro</p>
+        </div>
+    </footer>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
